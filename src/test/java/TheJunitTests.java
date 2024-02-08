@@ -1,10 +1,43 @@
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
+
+import static com.codeborne.selenide.Selenide.open;
 
 public class TheJunitTests {
+int result;
+    @BeforeAll
+    static void Alls(){
+        System.out.println("### beforeall");
+    }
+    @BeforeEach
+    void Eachs() {
+        System.out.println("### vv");
+        result = getResult();
+    }
+
+    private int getResult() {
+        return 3;
+    }
 
     @Test
     void firstTest() {
-        Assertions.assertTrue(3>2);
+        Assertions.assertTrue(result>2);
+        System.out.println("###  firstTest");
+    }
+
+    @Test
+    void secondTest() {
+        Assertions.assertTrue(result>2);
+        System.out.println("###  secondTest");
+    }
+
+    @AfterEach
+    void aftEachs() {
+        System.out.println("### vvc");
+        result = 0;
+    }
+
+    @AfterAll
+    static void aftAlls(){
+        System.out.println("### afterall");
     }
 }
