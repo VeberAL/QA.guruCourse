@@ -2,4 +2,6 @@
 
 <h6>#Selenium      
 #JUnit</h6>
-![img_2.png](img_2.png)
+
+<h4>Результат выполнения теста:</h4>
+<img src="/src/test/resources/Безымянный.png">
