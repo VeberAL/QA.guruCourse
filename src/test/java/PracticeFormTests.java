@@ -24,7 +24,8 @@ public class PracticeFormTests {
         $("#firstName").setValue("Alexander");
         $("#lastName").setValue("Veber");
         $("#userEmail").setValue("aleo83@rambler.ru");
-        $("#genterWrapper").$(byText("Male")).click();
+          $(".col-md-9 col-sm-12").$(byText("Male")).click();
+        //$("input[type='radio'][name='gender']").selectRadio("gender-radio-1");
         $("#userNumber").setValue("7770658833");
         $("#dateOfBirthInput").click();
         $(".react-datepicker__month-select").$(byText("September")).click();
