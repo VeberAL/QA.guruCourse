@@ -15,8 +15,8 @@ public class DragAndDropAndEnterpriseTest {
     }
 
     @Test
-    //Первая часть дз
-    void enterpriseTest(){
+        //Первая часть дз
+    void enterpriseTest() {
         open("https://github.com");
         $("[aria-label=Global]").$(withText("Solutions")).hover();
         $("div div.border-bottom a").click();
@@ -25,11 +25,11 @@ public class DragAndDropAndEnterpriseTest {
     }
 
     @Test
-    //Вторая часть дз
-    void dragAndDropTest(){
+        //Вторая часть дз
+    void dragAndDropTest() {
         open("https://the-internet.herokuapp.com/drag_and_drop");
         //Кликаем и удерживаем -> переносим -> отпускаем
-        actions().clickAndHold($("#column-a")).moveToElement($("#column-b")).release().perform();;
+        actions().clickAndHold($("#column-a")).moveToElement($("#column-b")).release().perform();
         $("#column-a").shouldBe(text("B"));
         System.out.println("Элементы успешно поменялись.");
 

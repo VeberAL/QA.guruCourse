@@ -11,11 +11,11 @@ public class FindOnPageHomeWork {
     static void resolutionAndUrl() {
         Configuration.browserSize = "1920x1080";
         Configuration.baseUrl = "https://github.com";
-        Configuration.pageLoadStrategy="eager";
+        Configuration.pageLoadStrategy = "eager";
     }
 
     @Test
-    void findJunitCodeForPage(){
+    void findJunitCodeForPage() {
         open("/selenide/selenide");
         $("#wiki-tab").click();
         $("#wiki-pages-filter").setValue("SoftAssertions");

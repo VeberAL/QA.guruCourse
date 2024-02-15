@@ -11,10 +11,11 @@ public class PracticeFormTests {
     static void resolutionAndUrl() {
         Configuration.browserSize = "1920x1080";
         Configuration.baseUrl = "https://demoqa.com";
-        Configuration.pageLoadStrategy="eager";
+        Configuration.pageLoadStrategy = "eager";
         Configuration.holdBrowserOpen = true;
         Configuration.timeout = 5000;
     }
+
     @Test
     void fillFormTests() {
         open("/automation-practice-form");
@@ -24,7 +25,7 @@ public class PracticeFormTests {
         $("#firstName").setValue("Alexander");
         $("#lastName").setValue("Veber");
         $("#userEmail").setValue("aleo83@rambler.ru");
-          $(".col-md-9 col-sm-12").$(byText("Male")).click();
+        $(".col-md-9 col-sm-12").$(byText("Male")).click();
         //$("input[type='radio'][name='gender']").selectRadio("gender-radio-1");
         $("#userNumber").setValue("7770658833");
         $("#dateOfBirthInput").click();
@@ -43,14 +44,14 @@ public class PracticeFormTests {
 
         //проверить поля на заполнение и соответствие
         $(".table-responsive").shouldHave(text("Alexander Veber"),
-                                                    (text("aleo83@rambler.ru")),
-                                                    (text("Male")),
-                                                    (text("7770658833")),
-                                                    (text("16 September,1993")),
-                                                    (text("English")),
-                                                    (text("Music")),
-                                                    (text("121211.png")),
-                                                    (text("Baikonur, Street Shybnikova, d.3")),
-                                                    (text("Haryana Panipat")));
+                (text("aleo83@rambler.ru")),
+                (text("Male")),
+                (text("7770658833")),
+                (text("16 September,1993")),
+                (text("English")),
+                (text("Music")),
+                (text("121211.png")),
+                (text("Baikonur, Street Shybnikova, d.3")),
+                (text("Haryana Panipat")));
     }
 }

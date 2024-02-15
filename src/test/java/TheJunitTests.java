@@ -1,13 +1,13 @@
 import org.junit.jupiter.api.*;
 
-import static com.codeborne.selenide.Selenide.open;
-
 public class TheJunitTests {
-int result;
+    int result;
+
     @BeforeAll
-    static void Alls(){
+    static void Alls() {
         System.out.println("### beforeall");
     }
+
     @BeforeEach
     void Eachs() {
         System.out.println("### vv");
@@ -20,13 +20,13 @@ int result;
 
     @Test
     void firstTest() {
-        Assertions.assertTrue(result>2);
+        Assertions.assertTrue(result > 2);
         System.out.println("###  firstTest");
     }
 
     @Test
     void secondTest() {
-        Assertions.assertTrue(result>2);
+        Assertions.assertTrue(result > 2);
         System.out.println("###  secondTest");
     }
 
@@ -37,7 +37,7 @@ int result;
     }
 
     @AfterAll
-    static void aftAlls(){
+    static void aftAlls() {
         System.out.println("### afterall");
     }
 }
