@@ -3,6 +3,7 @@ package pages;
 import com.codeborne.selenide.SelenideElement;
 import com.codeborne.selenide.conditions.CssValue;
 import pages.components.CalendarComponent;
+import pages.components.CheckResultComponent;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
@@ -10,21 +11,22 @@ import static com.codeborne.selenide.Selectors.withText;
 import static com.codeborne.selenide.Selenide.*;
 
 public class LoginPage {
-    private SelenideElement firstNameInput = $("#firstName"),
-            lastNameInput = $("#lastName"),
-            emailInput = $("#userEmail"),
-            genderWrapper = $(".col-md-9 div"),
-            userNumberInput = $("#userNumber"),
-            calendarInput = $("#dateOfBirthInput"),
-            dropListState = $("#state"),
-            dropListCity = $("#city"),
-            subjectsInput = $("#subjectsInput"),
-            hobbiesWrapper = $("#hobbiesWrapper"),
-            uploadPicture = $("#uploadPicture"),
-            addressInput = $("#currentAddress"),
-            checkResult = $(".table-responsive"),
-            checkErrorColorInput = $("#firstName");
+    private final SelenideElement firstNameInput = $("#firstName");
+    private final SelenideElement lastNameInput = $("#lastName");
+    private final SelenideElement emailInput = $("#userEmail");
+    private final SelenideElement genderWrapper = $(".col-md-9 div");
+    private final SelenideElement userNumberInput = $("#userNumber");
+    private final SelenideElement calendarInput = $("#dateOfBirthInput");
+    private final SelenideElement dropListState = $("#state");
+    private final SelenideElement dropListCity = $("#city");
+    private final SelenideElement subjectsInput = $("#subjectsInput");
+    private final SelenideElement hobbiesWrapper = $("#hobbiesWrapper");
+    private final SelenideElement uploadPicture = $("#uploadPicture");
+    private final SelenideElement addressInput = $("#currentAddress");
+    private final SelenideElement checkResult = $(".table-responsive");
+    private final SelenideElement checkErrorColorInput = $("#firstName");
     CalendarComponent calendarComponent = new CalendarComponent();
+    CheckResultComponent checkResultComponent = new CheckResultComponent();
 
     public LoginPage openPage() {
         open("/automation-practice-form");
@@ -102,13 +104,21 @@ public class LoginPage {
         return this;
     }
 
+    //для проверки обязательных полей
     public LoginPage checkResult(String key, String value) {
         checkResult.$(byText(key)).parent().shouldHave(text(value));
         return this;
     }
 
-    public LoginPage checkErrorColorInput(String color) {
+    //для проверки всех полей
+    public void checkResultComponent(String Name, String email, String gender, String mobileNumber,
+                                     String dateOfBirth, String subjects, String hobbies, String pictureName,
+                                     String address, String stateAndCity) {
+        checkResultComponent.getResultTable(Name, email, gender, mobileNumber, dateOfBirth, subjects, hobbies,
+                pictureName, address, stateAndCity);
+    }
+
+    public void checkErrorColorInput(String color) {
         checkErrorColorInput.shouldHave(new CssValue("border-color", color));
-        return this;
     }
 }

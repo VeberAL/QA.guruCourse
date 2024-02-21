@@ -22,16 +22,9 @@ public class PracticeFormTests extends TestBase {
                 .setCity("Panipat")
                 .clickButton("#submit")
                 //проверить поля на заполнение и соответствие
-                .checkResult("Student Name", "Alexander Veber")
-                .checkResult("Student Email", "aleo83@rambler.ru")
-                .checkResult("Gender", "Male")
-                .checkResult("Mobile", "7770658833")
-                .checkResult("Date of Birth", "16 September,1993")
-                .checkResult("Subjects", "English")
-                .checkResult("Hobbies", "Music")
-                .checkResult("Picture", "121211.png")
-                .checkResult("Address", "Baikonur, Street Shybnikova, d.3")
-                .checkResult("State and City", "Haryana Panipat");
+                .checkResultComponent("Alexander Veber", "aleo83@rambler.ru", "Male",
+                        "7770658833", "16 September,1993", "English", "Music",
+                        "121211.png", "Baikonur, Street Shybnikova, d.3", "Haryana Panipat");
     }
 
     @Test
