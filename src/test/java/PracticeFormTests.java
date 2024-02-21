@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
+import static com.codeborne.selenide.Selectors.withText;
 import static com.codeborne.selenide.Selenide.*;
 
 public class PracticeFormTests {
@@ -25,8 +26,7 @@ public class PracticeFormTests {
         $("#firstName").setValue("Alexander");
         $("#lastName").setValue("Veber");
         $("#userEmail").setValue("aleo83@rambler.ru");
-        $(".col-md-9 col-sm-12").$(byText("Male")).click();
-        //$("input[type='radio'][name='gender']").selectRadio("gender-radio-1");
+        $(".col-md-9 div").$(withText("Male")).click();
         $("#userNumber").setValue("7770658833");
         $("#dateOfBirthInput").click();
         $(".react-datepicker__month-select").$(byText("September")).click();
