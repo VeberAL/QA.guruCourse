@@ -1,5 +1,5 @@
-import com.codeborne.selenide.Configuration;
-import org.junit.jupiter.api.BeforeAll;
+package tests;
+
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.text;
@@ -7,18 +7,10 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selectors.withText;
 import static com.codeborne.selenide.Selenide.*;
 
-public class PracticeFormTests {
-    @BeforeAll
-    static void resolutionAndUrl() {
-        Configuration.browserSize = "1920x1080";
-        Configuration.baseUrl = "https://demoqa.com";
-        Configuration.pageLoadStrategy = "eager";
-        Configuration.holdBrowserOpen = true;
-        Configuration.timeout = 5000;
-    }
+public class PracticeFormTests extends TestBase {
 
     @Test
-    void fillFormTests() {
+    void fullFillFormTest() {
         open("/automation-practice-form");
         executeJavaScript("$('#fixedban').remove()");
         executeJavaScript("$('footer').remove()");
@@ -43,15 +35,21 @@ public class PracticeFormTests {
         $("#submit").click();
 
         //проверить поля на заполнение и соответствие
-        $(".table-responsive").shouldHave(text("Alexander Veber"),
-                (text("aleo83@rambler.ru")),
-                (text("Male")),
-                (text("7770658833")),
-                (text("16 September,1993")),
-                (text("English")),
-                (text("Music")),
-                (text("121211.png")),
-                (text("Baikonur, Street Shybnikova, d.3")),
-                (text("Haryana Panipat")));
+        $(".table-responsive").shouldHave(text("Alexander Veber"));
+        $(".table-responsive").shouldHave(text("aleo83@rambler.ru"));
+        $(".table-responsive").shouldHave(text("Male"));
+        $(".table-responsive").shouldHave(text("7770658833"));
+        $(".table-responsive").shouldHave(text("16 September,1993"));
+        $(".table-responsive").shouldHave(text("English"));
+        $(".table-responsive").shouldHave(text("Music"));
+        $(".table-responsive").shouldHave(text("121211.png"));
+        $(".table-responsive").shouldHave(text("Baikonur, Street Shybnikova, d.3"));
+        $(".table-responsive").shouldHave(text("Haryana Panipat"));
+    }
+
+
+    @Test
+    void requiredFillFormTest() {
+
     }
 }

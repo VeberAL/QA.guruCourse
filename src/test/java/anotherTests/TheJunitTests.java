@@ -1,3 +1,5 @@
+package anotherTests;
+
 import org.junit.jupiter.api.*;
 
 public class TheJunitTests {
