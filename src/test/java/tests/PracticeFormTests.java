@@ -1,55 +1,60 @@
 package tests;
 
 import org.junit.jupiter.api.Test;
-
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selectors.withText;
-import static com.codeborne.selenide.Selenide.*;
+import pages.LoginPage;
 
 public class PracticeFormTests extends TestBase {
-
+    LoginPage loginPage = new LoginPage();
     @Test
     void fullFillFormTest() {
-        open("/automation-practice-form");
-        executeJavaScript("$('#fixedban').remove()");
-        executeJavaScript("$('footer').remove()");
-
-        $("#firstName").setValue("Alexander");
-        $("#lastName").setValue("Veber");
-        $("#userEmail").setValue("aleo83@rambler.ru");
-        $(".col-md-9 div").$(withText("Male")).click();
-        $("#userNumber").setValue("7770658833");
-        $("#dateOfBirthInput").click();
-        $(".react-datepicker__month-select").$(byText("September")).click();
-        $(".react-datepicker__year-select").$(byText("1993")).click();
-        $(".react-datepicker__month").$(byText("16")).click();
-        $("#subjectsInput").setValue("English").pressEnter();
-        $("#hobbiesWrapper").$(byText("Music")).click();
-        $("#uploadPicture").uploadFromClasspath("121211.png");
-        $("#currentAddress").setValue("Baikonur, Street Shybnikova, d.3");
-        $("#state").click();
-        $("#state").$(byText("Haryana")).click();
-        $("#city").click();
-        $("#city").$(byText("Panipat")).click();
-        $("#submit").click();
-
-        //проверить поля на заполнение и соответствие
-        $(".table-responsive").shouldHave(text("Alexander Veber"));
-        $(".table-responsive").shouldHave(text("aleo83@rambler.ru"));
-        $(".table-responsive").shouldHave(text("Male"));
-        $(".table-responsive").shouldHave(text("7770658833"));
-        $(".table-responsive").shouldHave(text("16 September,1993"));
-        $(".table-responsive").shouldHave(text("English"));
-        $(".table-responsive").shouldHave(text("Music"));
-        $(".table-responsive").shouldHave(text("121211.png"));
-        $(".table-responsive").shouldHave(text("Baikonur, Street Shybnikova, d.3"));
-        $(".table-responsive").shouldHave(text("Haryana Panipat"));
+        loginPage.openPage()
+                .setFirstName("Alexander")
+                .setLastName("Veber")
+                .setEmail("aleo83@rambler.ru")
+                .setGender("Male")
+                .setPhoneNumber("7770658833")
+                .setDateOfBirth("16", "September", "1993")
+                .setSubject("English")
+                .setHobbies("Music")
+                .uploadPicture("121211.png")
+                .setAddress("Baikonur, Street Shybnikova, d.3")
+                .setState("Haryana")
+                .setCity("Panipat")
+                .clickButton("#submit")
+                //проверить поля на заполнение и соответствие
+                .checkResult("Student Name", "Alexander Veber")
+                .checkResult("Student Email", "aleo83@rambler.ru")
+                .checkResult("Gender", "Male")
+                .checkResult("Mobile", "7770658833")
+                .checkResult("Date of Birth", "16 September,1993")
+                .checkResult("Subjects", "English")
+                .checkResult("Hobbies", "Music")
+                .checkResult("Picture", "121211.png")
+                .checkResult("Address", "Baikonur, Street Shybnikova, d.3")
+                .checkResult("State and City", "Haryana Panipat");
     }
-
 
     @Test
     void requiredFillFormTest() {
+        loginPage.openPage()
+                .setFirstName("Alexander")
+                .setLastName("Veber")
+                .setGender("Male")
+                .setPhoneNumber("7770658833")
+                .clickButton("#submit")
+                .checkResult("Student Name", "Alexander Veber")
+                .checkResult("Gender", "Male")
+                .checkResult("Mobile", "7770658833");
+    }
 
+    @Test
+    void nonFirstNameFillFormTest() {
+        loginPage.openPage()
+                .setFirstName("")
+                .setLastName("Veber")
+                .setGender("Male")
+                .setPhoneNumber("7770658833")
+                .clickButton("#submit")
+                .checkErrorColorInput("rgb(220, 53, 69)");
     }
 }
