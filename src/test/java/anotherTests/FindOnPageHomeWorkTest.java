@@ -1,9 +1,10 @@
+package anotherTests;
+
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
 public class FindOnPageHomeWorkTest {
@@ -20,19 +21,19 @@ public class FindOnPageHomeWorkTest {
         $("#wiki-tab").click();
         $("#wiki-pages-filter").setValue("SoftAssertions");
         $$("ul.filterable-active div a").findBy(text("SoftAssertions")).click();
-        System.out.println("SoftAssertions найден в списке.");
-        $(".markdown-body").$(byText("Using JUnit5 extend test class:\n" +
-                "@ExtendWith({SoftAssertsExtension.class})\n" +
-                "class Tests {\n" +
-                "  @Test\n" +
-                "  void test() {\n" +
-                "    Configuration.assertionMode = SOFT;\n" +
-                "    open(\"page.html\");\n" +
-                "\n" +
-                "    $(\"#first\").should(visible).click();\n" +
-                "    $(\"#second\").should(visible).click();\n" +
-                "  }\n" +
-                "}"));
+        $(".markdown-body").shouldHave(text("""
+                Using JUnit5 extend test class:
+                @ExtendWith({SoftAssertsExtension.class})
+                class Tests {
+                  @Test
+                  void test() {
+                    Configuration.assertionMode = SOFT;
+                    open("page.html");
+
+                    $("#first").should(visible).click();
+                    $("#second").should(visible).click();
+                  }
+                }"""));
         System.out.println("Пример кода для JUnit5 найден на странице.");
     }
 }
