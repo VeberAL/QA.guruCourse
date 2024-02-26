@@ -14,7 +14,7 @@ public class LoginPage {
     private final SelenideElement firstNameInput = $("#firstName");
     private final SelenideElement lastNameInput = $("#lastName");
     private final SelenideElement emailInput = $("#userEmail");
-    private final SelenideElement genderWrapper = $(".col-md-9 div");
+    private final SelenideElement genderWrapper = $("#genterWrapper");
     private final SelenideElement userNumberInput = $("#userNumber");
     private final SelenideElement calendarInput = $("#dateOfBirthInput");
     private final SelenideElement dropListState = $("#state");
@@ -99,8 +99,8 @@ public class LoginPage {
         return this;
     }
 
-    public LoginPage clickButton(String Bname) {
-        $(Bname).click();
+    public LoginPage clickButton() {
+        $("#submit").click();
         return this;
     }
 

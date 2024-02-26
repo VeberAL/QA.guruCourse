@@ -16,15 +16,15 @@ public class PracticeFormTests extends TestBase {
                 .setDateOfBirth("16", "September", "1993")
                 .setSubject("English")
                 .setHobbies("Music")
-                .uploadPicture("121211.png")
+                .uploadPicture("12.png")
                 .setAddress("Baikonur, Street Shybnikova, d.3")
                 .setState("Haryana")
                 .setCity("Panipat")
-                .clickButton("#submit")
+                .clickButton()
                 //проверить поля на заполнение и соответствие
                 .checkResultComponent("Alexander Veber", "aleo83@rambler.ru", "Male",
                         "7770658833", "16 September,1993", "English", "Music",
-                        "121211.png", "Baikonur, Street Shybnikova, d.3", "Haryana Panipat");
+                        "12.png", "Baikonur, Street Shybnikova, d.3", "Haryana Panipat");
     }
 
     @Test
@@ -34,7 +34,7 @@ public class PracticeFormTests extends TestBase {
                 .setLastName("Veber")
                 .setGender("Male")
                 .setPhoneNumber("7770658833")
-                .clickButton("#submit")
+                .clickButton()
                 .checkResult("Student Name", "Alexander Veber")
                 .checkResult("Gender", "Male")
                 .checkResult("Mobile", "7770658833");
@@ -47,7 +47,7 @@ public class PracticeFormTests extends TestBase {
                 .setLastName("Veber")
                 .setGender("Male")
                 .setPhoneNumber("7770658833")
-                .clickButton("#submit")
+                .clickButton()
                 .checkErrorColorInput("rgb(220, 53, 69)");
     }
 }
