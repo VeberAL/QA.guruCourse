@@ -32,3 +32,10 @@
   <li>Взять код написанный в рамках ДЗ - 1 для формы https://demoqa.com/automation-practice-form
   <li>Добавить еще как минимум 2 автотеста - проверку минимального количества данных и негативную проверку,</li>
   <li>Добавить в код PageObjects / Components, в тестовом классе не должно остаться локаторов (таблицу с результатами введенных данных тоже вынести в components).</li></ol>
+
+<h4><li><a href="https://github.com/VeberAL/QA.guruCourse/blob/main/src/test/java/tests/PracticeFormWithFakerTests.java">
+Дз - 5.</a></li></h4>
+<ol>
+  <li>Взять код написанный в рамках ДЗ - 4 для формы https://demoqa.com/automation-practice-form (c PageObjects),
+  <li>Вынести все вводимые и проверяемые значения в переменные, добавить генерацию данных с Faker.</li></ol>
+
