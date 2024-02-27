@@ -22,9 +22,16 @@ public class PracticeFormTests extends TestBase {
                 .setCity("Panipat")
                 .clickButton()
                 //проверить поля на заполнение и соответствие
-                .checkResultComponent("Alexander Veber", "aleo83@rambler.ru", "Male",
-                        "7770658833", "16 September,1993", "English", "Music",
-                        "12.png", "Baikonur, Street Shybnikova, d.3", "Haryana Panipat");
+                .checkResult("Student Name", "Alexander Veber")
+                .checkResult("Student Email", "aleo83@rambler.ru")
+                .checkResult("Gender", "Male")
+                .checkResult("Mobile", "7770658833")
+                .checkResult("Date of Birth", "16 September,1993")
+                .checkResult("Subjects", "English")
+                .checkResult("Hobbies", "Music")
+                .checkResult("Picture", "12.png")
+                .checkResult("Address", "Baikonur, Street Shybnikova, d.3")
+                .checkResult("State and City", "Haryana Panipat");
     }
 
     @Test
@@ -48,6 +55,6 @@ public class PracticeFormTests extends TestBase {
                 .setGender("Male")
                 .setPhoneNumber("7770658833")
                 .clickButton()
-                .checkErrorColorInput("rgb(220, 53, 69)");
+                .checkNotVisibleResultTable();
     }
 }

@@ -1,11 +1,11 @@
 package pages;
 
 import com.codeborne.selenide.SelenideElement;
-import com.codeborne.selenide.conditions.CssValue;
 import pages.components.CalendarComponent;
 import pages.components.CheckResultComponent;
 
 import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selectors.withText;
 import static com.codeborne.selenide.Selenide.*;
@@ -24,7 +24,6 @@ public class LoginPage {
     private final SelenideElement uploadPicture = $("#uploadPicture");
     private final SelenideElement addressInput = $("#currentAddress");
     private final SelenideElement checkResult = $(".table-responsive");
-    private final SelenideElement checkErrorColorInput = $("#firstName");
     CalendarComponent calendarComponent = new CalendarComponent();
     CheckResultComponent checkResultComponent = new CheckResultComponent();
 
@@ -104,21 +103,13 @@ public class LoginPage {
         return this;
     }
 
-    //для проверки обязательных полей
+    //для проверки полей
     public LoginPage checkResult(String key, String value) {
-        checkResult.$(byText(key)).parent().shouldHave(text(value));
+        checkResultComponent.getResultTable(key, value);
         return this;
     }
 
-    //для проверки всех полей
-    public void checkResultComponent(String Name, String email, String gender, String mobileNumber,
-                                     String dateOfBirth, String subjects, String hobbies, String pictureName,
-                                     String address, String stateAndCity) {
-        checkResultComponent.getResultTable(Name, email, gender, mobileNumber, dateOfBirth, subjects, hobbies,
-                pictureName, address, stateAndCity);
-    }
-
-    public void checkErrorColorInput(String color) {
-        checkErrorColorInput.shouldHave(new CssValue("border-color", color));
+    public void checkNotVisibleResultTable() {
+        checkResult.shouldNot(visible);
     }
 }

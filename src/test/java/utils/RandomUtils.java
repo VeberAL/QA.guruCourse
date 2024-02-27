@@ -70,14 +70,12 @@ public class RandomUtils {
                 randomHaryanaCity = faker.options().option("Karnal", "Panipat"),
                 randomRajasthanCity = faker.options().option("Jaipur", "Jaiselmer");
 
-        if (userState == "NCR")
-            userCity = randomNCRCity;
-        else if (userState == "Uttar Pradesh")
-            userCity = randomUttarPradeshCity;
-        else if (userState == "Haryana")
-            userCity = randomHaryanaCity;
-        else
-            userCity = randomRajasthanCity;
+        switch (userState) {
+            case "NCR" -> userCity = randomNCRCity;
+            case "Uttar Pradesh" -> userCity = randomUttarPradeshCity;
+            case "Haryana" -> userCity = randomHaryanaCity;
+            default -> userCity = randomRajasthanCity;
+        }
         return userCity;
     }
 }

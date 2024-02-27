@@ -38,10 +38,16 @@ public class PracticeFormWithFakerTests extends TestBase {
                 .setState(userState)
                 .setCity(userCity)
                 .clickButton()
-                //проверить поля на заполнение и соответствие
-                .checkResultComponent(firstName + " " + lastName, userEmail, userGender,
-                        userMobileNumber, userBirthDay + " " + userBirthMonth + "," + userBirthYear, userSubject, userHobbie,
-                        userPicture, streetAddress, userState + " " + userCity);
+                .checkResult("Student Name", firstName + " " + lastName)
+                .checkResult("Student Email", userEmail)
+                .checkResult("Gender", userGender)
+                .checkResult("Mobile", userMobileNumber)
+                .checkResult("Date of Birth", userBirthDay + " " + userBirthMonth + "," + userBirthYear)
+                .checkResult("Subjects", userSubject)
+                .checkResult("Hobbies", userHobbie)
+                .checkResult("Picture", userPicture)
+                .checkResult("Address", streetAddress)
+                .checkResult("State and City", userState + " " + userCity);
     }
 
     @Test
@@ -65,6 +71,6 @@ public class PracticeFormWithFakerTests extends TestBase {
                 .setGender(userGender)
                 .setPhoneNumber(userMobileNumber)
                 .clickButton()
-                .checkErrorColorInput("rgb(220, 53, 69)");
+                .checkNotVisibleResultTable();
     }
 }
