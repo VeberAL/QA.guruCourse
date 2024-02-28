@@ -14,32 +14,32 @@ public class ArrayVsLinked {
             linkedList.add(i);
         }
         //ЧТЕНИЕ - ArrayList быстрее
-        long ArrayT0 = System.currentTimeMillis();
+        long arrayT0 = System.currentTimeMillis();
         for (int i = 0; i < 100000; i++) {
             arrayList.get(5000);
         }
         System.out.println("Чтение 100.000 элементов типа int:\n");
-        System.out.println("Время работы ArrayList: " + (System.currentTimeMillis() - ArrayT0) + " мс.");
+        System.out.println("Время работы ArrayList: " + (System.currentTimeMillis() - arrayT0) + " мс.");
 
-        long LinkedT0 = System.currentTimeMillis();
+        long linkedT0 = System.currentTimeMillis();
         for (int i = 0; i < 100000; i++) {
             linkedList.get(5000);
         }
-        System.out.println("Время работы LinkedList: " + (System.currentTimeMillis() - LinkedT0) + " мс.");
+        System.out.println("Время работы LinkedList: " + (System.currentTimeMillis() - linkedT0) + " мс.");
 
         //ЗАПИСЬ  - LinkedList быстрее
-        long ArrayT = System.currentTimeMillis();
+        long arrayT = System.currentTimeMillis();
         for (int i = 0; i < 100000; i++) {
             arrayList.add(0, i);
         }
         System.out.println("\nЗапись 100.000 элементов типа int:\n");
-        System.out.println("Время работы ArrayList: " + (System.currentTimeMillis() - ArrayT) + " мс.");
+        System.out.println("Время работы ArrayList: " + (System.currentTimeMillis() - arrayT) + " мс.");
 
-        long LinkedT = System.currentTimeMillis();
+        long linkedT = System.currentTimeMillis();
         for (int i = 0; i < 100000; i++) {
             linkedList.add(0, i);
         }
-        System.out.println("Время работы LinkedList: " + (System.currentTimeMillis() - LinkedT) + " мс.");
+        System.out.println("Время работы LinkedList: " + (System.currentTimeMillis() - linkedT) + " мс.");
     }
 }
 
