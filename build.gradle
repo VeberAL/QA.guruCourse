@@ -5,16 +5,18 @@ plugins {
 repositories {
     mavenCentral()
 }
-
+compileJava {
+    options.encoding = 'UTF-8'
+}
+compileTestJava {
+    options.encoding = 'UTF-8'
+}
 dependencies {
      testImplementation(
              "com.codeborne:selenide:7.1.0",
              "org.junit.jupiter:junit-jupiter:5.10.0",
              "com.github.javafaker:javafaker:1.0.2",
              "org.slf4j:slf4j-simple:1.7.36")
-}
-tasks.withType(JavaCompile).configureEach {
-    options.encoding = 'UTF-8'
 }
 test {
     useJUnitPlatform()
