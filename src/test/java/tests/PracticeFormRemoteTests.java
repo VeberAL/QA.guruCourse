@@ -95,6 +95,7 @@ public class PracticeFormRemoteTests {
     }
 
     @Test
+    @DisplayName("Заполнение не всех обязательных полей формы demoqa и проверка заполнения.")
     @Tag("demoqa")
     void nonFirstNameFillFormTest() {
         step("Открыть форму.", () -> loginPage.openPage());
