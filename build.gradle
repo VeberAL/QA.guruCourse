@@ -28,12 +28,12 @@ compileTestJava {
     options.encoding = 'UTF-8'
 }
 dependencies {
-     testImplementation(
-             "com.codeborne:selenide:7.1.0",
-             "org.junit.jupiter:junit-jupiter:5.10.0",
-             "org.slf4j:slf4j-simple:1.7.36",
-             "com.github.javafaker:javafaker:1.0.1",
-             "io.qameta.allure:allure-selenide:2.25.0")
+    testImplementation(
+            "com.codeborne:selenide:7.1.0",
+            "org.junit.jupiter:junit-jupiter:5.10.0",
+            "org.slf4j:slf4j-simple:1.7.36",
+            "com.github.javafaker:javafaker:1.0.1",
+            "io.qameta.allure:allure-selenide:2.25.0")
 }
 tasks.withType(Test) {
     useJUnitPlatform()
@@ -49,5 +49,10 @@ tasks.withType(Test) {
 task demoqa_test(type: Test) {
     useJUnitPlatform {
         includeTags("demoqa")
+    }
+}
+task smoke_test(type: Test) {
+    useJUnitPlatform {
+        includeTags("smoke")
     }
 }

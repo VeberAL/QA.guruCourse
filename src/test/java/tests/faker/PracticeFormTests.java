@@ -1,4 +1,4 @@
-package tests;
+package tests.faker;
 
 import org.junit.jupiter.api.Test;
 import pages.LoginPage;
