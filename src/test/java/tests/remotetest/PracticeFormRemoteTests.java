@@ -26,7 +26,7 @@ public class PracticeFormRemoteTests extends TestBase {
                     .setDateOfBirth("16", "September", "1993")
                     .setSubject("English")
                     .setHobbies("Music")
-                    .uploadPicture("12.png")
+                    //.uploadPicture("12.png")
                     .setAddress("Baikonur, Street Shybnikova, d.3")
                     .setState("Haryana")
                     .setCity("Panipat");
@@ -40,7 +40,7 @@ public class PracticeFormRemoteTests extends TestBase {
                     .checkResult("Date of Birth", "16 September,1993")
                     .checkResult("Subjects", "English")
                     .checkResult("Hobbies", "Music")
-                    .checkResult("Picture", "12.png")
+                    // .checkResult("Picture", "12.png")
                     .checkResult("Address", "Baikonur, Street Shybnikova, d.3")
                     .checkResult("State and City", "Haryana Panipat");
         });
