@@ -17,15 +17,15 @@ public class TestBase {
         String baseUrl = System.getProperty("baseUrl");
         String browserSize = System.getProperty("browserSize", "1920x1080");
         String remote = System.getProperty("remote");
-        // String browser = System.getProperty("browser", "chrome");
-        //  String browserVersion = System.getProperty("browserVersion");
+        String browser = System.getProperty("browser");
+        String browserVersion = System.getProperty("browserVersion");
 
         Configuration.baseUrl = baseUrl;
         Configuration.browserSize = browserSize;
         Configuration.remote = remote;
         Configuration.timeout = 10000;
-        // Configuration.browser = browser;
-        //Configuration.browserVersion = browserVersion;
+        Configuration.browser = browser;
+        Configuration.browserVersion = browserVersion;
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("selenoid:options", Map.<String, Object>of(
