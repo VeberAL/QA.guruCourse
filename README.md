@@ -56,3 +56,19 @@
   <li>Чистый Selenide (с Listener),</li>
   <li>Лямбда шаги через step (name, () -> {}),</li>
   <li>Шаги с аннотацией @Step.</li></ol>
+
+<h4><li><a href="https://github.com/VeberAL/QA.guruCourse/tree/main/src/test/java/tests/remotetest">
+Дз - 8.</a></li></h4>
+
+<ol>
+  <li>Взять код для Дз - 6,</li>
+  <li>Добавить аттачи для Allure – скриншот, page source, console.log и видео,</li>
+  <li>Cделать сборку в <a href="https://jenkins.autotests.cloud/job/Group25_VeberAL/2/allure/">Jenkins</a>.</li></ol>
+
+<h4><li><a href="https://github.com/VeberAL/QA.guruCourse/tree/main/src/test/java/tests/remotetest">
+Дз - 9.</a></li></h4>
+
+– Доработать код для Дз - 8:
+<ol>
+  <li>Передать из дженкинса адрес удаленного браузера (selenoid),</li>
+  <li>Сделать возможность выбора браузера, версии и разрешения из сборки <a href="https://jenkins.autotests.cloud/job/Group25_VeberAL_1/">Jenkins</a>.</li></ol>
