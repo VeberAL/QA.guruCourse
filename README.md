@@ -26,14 +26,14 @@
   <li>Проверьте, что прямоугольники действительно поменялись,</li>
   <li>В Selenide есть команда $(element).dragAndDrop($(to-element)), проверьте работает ли тест, если использовать её вместо actions().</li></ol>
 
-<h4><li><a href="https://github.com/VeberAL/QA.guruCourse/tree/main/src/test/java/tests">
+<h4><li><a href="https://github.com/VeberAL/QA.guruCourse/blob/main/src/test/java/pages/LoginPage.java">
 Дз - 4.</a></li></h4>
  <ol>
   <li>Взять код написанный в рамках ДЗ - 1 для формы https://demoqa.com/automation-practice-form,</li>
   <li>Добавить еще как минимум 2 автотеста - проверку минимального количества данных и негативную проверку,</li>
   <li>Добавить в код PageObjects / Components, в тестовом классе не должно остаться локаторов (таблицу с результатами введенных данных тоже вынести в components).</li></ol>
 
-<h4><li><a href="https://github.com/VeberAL/QA.guruCourse/blob/main/src/test/java/tests/PracticeFormWithFakerTests.java">
+<h4><li><a href="https://github.com/VeberAL/QA.guruCourse/tree/main/src/test/java/tests/faker">
 Дз - 5.</a></li></h4>
 <ol>
   <li>Взять код написанный в рамках ДЗ - 4 для формы https://demoqa.com/automation-practice-form (c PageObjects),</li>
