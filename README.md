@@ -72,3 +72,18 @@
 <ol>
   <li>Передать из дженкинса адрес удаленного браузера (selenoid),</li>
   <li>Сделать возможность выбора браузера, версии и разрешения из сборки <a href="https://jenkins.autotests.cloud/job/Group25_VeberAL_1/">Jenkins</a>.</li></ol>
+
+  <h4><li><a href="https://github.com/VeberAL/QA.guruCourse/tree/main/src/test/java/tests/remotetest">
+Дз - 10.</a></li></h4>
+
+– Доработать код для Дз - 9:
+<ol>
+  <li>Зарегистрировать бота в Telegram, создать чат и добавить бота в него,</li>
+  <li>Добавить бота к проекту.</li></ol>
+
+   <h4><li><a href="https://github.com/VeberAL/Reqres_RestApi_Tests/blob/main/src/test/java/ReqresTests.java">
+Дз - 11.</a></li></h4>
+
+<ol>
+  <li>Разработать пять API автотестов с использованием Rest-assured на запросы из https://reqres.in,</li>
+  <li>Отдать код на ревью.</li></ol>
